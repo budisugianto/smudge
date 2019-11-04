@@ -19,7 +19,7 @@ package main
 import (
 	"flag"
 	"fmt"
-	"github.com/clockworksoul/smudge"
+	"github.com/budisugianto/smudge"
 	"log"
 )
 

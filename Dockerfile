@@ -8,9 +8,9 @@ FROM golang:1.13 as test
 
 WORKDIR /go/bin/
 
-COPY . /go/src/github.com/clockworksoul/smudge
+COPY . /go/src/github.com/budisugianto/smudge
 
-RUN go test -v github.com/clockworksoul/smudge
+RUN go test -v github.com/budisugianto/smudge
 
 
 # Part 2: Compile the binary in a containerized Golang environment
@@ -19,9 +19,9 @@ FROM golang:1.13 as build
 
 WORKDIR /go/bin/
 
-COPY . /go/src/github.com/clockworksoul/smudge
+COPY . /go/src/github.com/budisugianto/smudge
 
-RUN CGO_ENABLED=0 GOOS=linux go build -a -installsuffix cgo -o smudge github.com/clockworksoul/smudge/smudge
+RUN CGO_ENABLED=0 GOOS=linux go build -a -installsuffix cgo -o smudge github.com/budisugianto/smudge/smudge
 
 
 # Part 3: Build the Smudge image proper

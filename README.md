@@ -1,10 +1,10 @@
 # Smudge
 
-[![GoDoc](https://godoc.org/github.com/clockworksoul/smudge?status.svg)](https://godoc.org/github.com/clockworksoul/smudge)
+[![GoDoc](https://godoc.org/github.com/budisugianto/smudge?status.svg)](https://godoc.org/github.com/budisugianto/smudge)
 [![Build Status](https://travis-ci.org/clockworksoul/smudge.svg?branch=master)](https://travis-ci.org/clockworksoul/smudge)
-[![Go Report Card](https://goreportcard.com/badge/github.com/clockworksoul/smudge)](https://goreportcard.com/report/github.com/clockworksoul/smudge)
+[![Go Report Card](https://goreportcard.com/badge/github.com/budisugianto/smudge)](https://goreportcard.com/report/github.com/budisugianto/smudge)
 
-<img src="https://github.com/clockworksoul/smudge/raw/master/logo/logo.png" width="150">
+<img src="https://github.com/budisugianto/smudge/raw/master/logo/logo.png" width="150">
 
 ## Introduction
 Smudge is a minimalist Go implementation of the [SWIM](https://pdfs.semanticscholar.org/8712/3307869ac84fc16122043a4a313604bd948f.pdf) (Scalable Weakly-consistent Infection-style Membership) protocol for cluster node membership, status dissemination, and failure detection developed at Cornell University by Motivala, et al. It isn't a distributed data store in its own right, but rather a framework intended to facilitate the construction of such systems.
@@ -13,7 +13,7 @@ Smudge also extends the standard SWIM protocol so that in addition to the standa
 
 Smudge was conceived with space-sensitive systems (mobile, IoT, containers) in mind, and therefore was developed with a minimalist philosophy of doing a few things well. As such, its feature set is relatively small and mostly limited to functionality around adding and removing nodes and detecting status changes on the cluster.
 
-Complete documentation is available from [the associated Godoc](https://godoc.org/github.com/clockworksoul/smudge).
+Complete documentation is available from [the associated Godoc](https://godoc.org/github.com/budisugianto/smudge).
 
 
 ## Features
@@ -75,7 +75,7 @@ make test
 Or, if you'd rather not use a Makefile:
 
 ```bash
-go test -v github.com/clockworksoul/smudge
+go test -v github.com/budisugianto/smudge
 ```
 
 
@@ -132,15 +132,15 @@ Change it to whatever works for you. You'll want to add this to your `.bashrc` o
 
 #### Clone the repo into your GOPATH
 
-Clone the code into `$GOPATH/src/github.com/clockworksoul/smudge`. Using the full-qualified path structure makes it possible to import the code into other libraries, as well as Smudge's own `main()` function.
+Clone the code into `$GOPATH/src/github.com/budisugianto/smudge`. Using the full-qualified path structure makes it possible to import the code into other libraries, as well as Smudge's own `main()` function.
 
 ```bash
-git clone git@github.com:clockworksoul/smudge.git $GOPATH/src/github.com/clockworksoul/smudge
+git clone git@github.com:clockworksoul/smudge.git $GOPATH/src/github.com/budisugianto/smudge
 ```
 
 #### Execute your build
 
-Once you have a `$GOPATH` already configured and the repository correctly cloned into `$GOPATH/src/github.com/clockworksoul/smudge`, you can execute the following:
+Once you have a `$GOPATH` already configured and the repository correctly cloned into `$GOPATH/src/github.com/budisugianto/smudge`, you can execute the following:
 
 ```bash
 make build
@@ -151,7 +151,7 @@ When using the Makefile, the compiled binary will be present in the `/bin` direc
 If you'd rather not use a Makefile:
 
 ```bash
-go build -a -installsuffix cgo -o smudge github.com/clockworksoul/smudge/smudge
+go build -a -installsuffix cgo -o smudge github.com/budisugianto/smudge/smudge
 ```
 
 The binary, compiled for your current environment, will be present in your present working directory.
@@ -244,7 +244,7 @@ Once everything else is done, starting the server is trivial:
 Simply call: `smudge.Begin()`
 
 ### Transmitting a broadcast
-To transmit a broadcast to all healthy nodes currenty in the cluster you can use one of the [`BroadcastBytes(bytes []byte)`](https://godoc.org/github.com/clockworksoul/smudge#BroadcastBytes) or [`BroadcastString(str string)`](https://godoc.org/github.com/clockworksoul/smudge#BroadcastString) functions.
+To transmit a broadcast to all healthy nodes currenty in the cluster you can use one of the [`BroadcastBytes(bytes []byte)`](https://godoc.org/github.com/budisugianto/smudge#BroadcastBytes) or [`BroadcastString(str string)`](https://godoc.org/github.com/budisugianto/smudge#BroadcastString) functions.
 
 Be aware of the following caveats:
 * Attempting to send a broadcast before the server has been started will cause a panic.
@@ -252,14 +252,14 @@ Be aware of the following caveats:
 * Nodes that join the cluster after the broadcast has been fully propagated will not receive the broadcast; nodes that join after the initial transmission but before complete proagation may or may not receive the broadcast.
 
 ### Getting a list of nodes
-The [`AllNodes()`](https://godoc.org/github.com/clockworksoul/smudge#AllNodes) can be used to get all known nodes; [`HealthyNodes()`](https://godoc.org/github.com/clockworksoul/smudge#HealthyNodes) works similarly, but returns only healthy nodes (defined as nodes with a [status](https://godoc.org/github.com/clockworksoul/smudge#NodeStatus) of "alive").
+The [`AllNodes()`](https://godoc.org/github.com/budisugianto/smudge#AllNodes) can be used to get all known nodes; [`HealthyNodes()`](https://godoc.org/github.com/budisugianto/smudge#HealthyNodes) works similarly, but returns only healthy nodes (defined as nodes with a [status](https://godoc.org/github.com/budisugianto/smudge#NodeStatus) of "alive").
 
 ### Everything in one place
 
 ```go
 package main
 
-import "github.com/clockworksoul/smudge"
+import "github.com/budisugianto/smudge"
 import "fmt"
 import "net"
 
