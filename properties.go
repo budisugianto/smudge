@@ -86,7 +86,7 @@ const (
 	EnvVarMulticastAddress = "SMUDGE_MULTICAST_ADDRESS"
 
 	// DefaultMulticastAddress is the default multicast address. Empty string
-	// indicates 224.0.0.0 for IPv4 and [ff02::1] for IPv6.
+	// indicates 224.0.1.22 for IPv4 and [ff02::1] for IPv6.
 	DefaultMulticastAddress string = ""
 
 	// EnvVarMulticastEnabled is the name of the environment variable that
