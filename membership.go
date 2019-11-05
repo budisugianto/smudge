@@ -32,7 +32,7 @@ const lambda = 2.5
 // allow before timing out an ACK.
 const timeoutToleranceSigmas = 3.0
 
-const defaultIPv4MulticastAddress = "224.0.0.0"
+const defaultIPv4MulticastAddress = "224.0.1.22"
 
 const defaultIPv6MulticastAddress = "[ff02::1]"
 
